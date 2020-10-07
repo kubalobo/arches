@@ -238,7 +238,7 @@ class MobileSurvey(models.MobileSurveyModel):
             models.UserProfile.objects.create(user=user)
         if user_is_resource_reviewer(user):
             user_id = str(user.id)
-            if user_id in tile.provisionaledits:
+            if tile.provisionaledits:
                 tile.provisionaledits.pop(user_id, None)
 
     def get_provisional_edit(self, doc, tile, sync_user_id, db):
